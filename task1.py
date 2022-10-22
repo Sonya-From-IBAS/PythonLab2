@@ -11,3 +11,4 @@ def create_csv_annotation(class_name: str) -> None:
         for name in class_names:
             file_writer.writerow([os.path.abspath(name), os.path.join(path_to_class, name), class_name])
 
+# first task
