@@ -4,12 +4,14 @@ import csv
 
 
 def create_dir(dir_name: str) -> str:
+    '''This function create dir where we must copy our dataset'''
     if not os.path.isdir(dir_name):
         os.mkdir(dir_name)
     return dir_name
 
 
 def create_copy_dataset(dir_copy: str, annotation_name: str) -> None:
+    '''This function copy our dataset in another directory and create csv file with 2 parameters: filename and file's class name'''
     create_dir(dir_copy)
     for dataset_item in os.listdir("dataset"):
         files_list = os.listdir(os.path.join("dataset", dataset_item))
@@ -22,4 +24,6 @@ def create_copy_dataset(dir_copy: str, annotation_name: str) -> None:
                 file_writer.writerow([f"{dataset_item}_{file_name}", dataset_item])
 
 
-create_copy_dataset("dataset_copy", "annotation.csv")
+def run2(dir_copy: str, annotation_name: str) -> None:
+    ''' This function call previous to run it in main'''
+    create_copy_dataset(dir_copy, annotation_name)
